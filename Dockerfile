@@ -8,7 +8,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build --ldflags "-s -w" -a -installsuffix cgo -o
 
 FROM scratch
 
-COPY --from=0 /go/src/github.com/tislaamo/http-dump/http-dump .
+COPY --from=builder /go/src/github.com/tislaamo/http-dump/http-dump .
 
 EXPOSE 8080
 

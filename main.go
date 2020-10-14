@@ -20,11 +20,9 @@ func main() {
 			return
 		}
 
-		b := string(d)
+		log.Printf("Request received:\n%s\n\n", d)
 
-		log.Printf("request received:\n%s\n\n", b)
-
-		if _, err := fmt.Fprintf(w, b); err != nil {
+		if _, err := fmt.Fprintf(w, string("")); err != nil {
 			msg := fmt.Sprintf("couldn't write response: %s", err)
 			log.Printf(msg)
 			http.Error(w, msg, http.StatusInternalServerError)
